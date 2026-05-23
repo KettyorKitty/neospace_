@@ -1,0 +1,646 @@
+:root {
+    --bg-principal: #0a0b10;
+    --bg-tarjetas: #121420;
+    --neon-cian: #00f2fe;
+    --neon-morado: #7f00ff;
+    --neon-verde: #05ffa1;
+    --texto-blanco: #ffffff;
+    --texto-gris: #a0aec0;
+}
+
+/* 2. RESET Y BASE */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-principal);
+    color: var(--texto-blanco);
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+}
+
+/* Agrupamos todo lo que usa la fuente espacial para no repetir código */
+h1, h2, h3, .logo, .btn-nav, .btn-principal, .sub-contacto, .btn-enviar, #caption-lightbox, .loader-content, footer {
+    font-family: 'Orbitron', sans-serif;
+}
+
+/* 3. SELECCIÓN DE TEXTO (Limpio y unificado) */
+::selection, ::-moz-selection {
+    background-color: var(--neon-cian);
+    color: var(--bg-principal);
+    text-shadow: none;
+}
+
+.glitch-text::selection, .glitch-text::-moz-selection {
+    -webkit-text-fill-color: var(--texto-blanco);
+    background-color: var(--neon-cian);
+    color: var(--bg-principal);
+}
+/* 4. ENCABEZADO (HEADER) */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 8%; /* ¡Corregido! Agregamos los 20px de altura */
+    background: rgba(10, 11, 16, 0.9);
+    backdrop-filter: blur(10px); 
+    
+    border-bottom: none; 
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 8%;   
+    right: 8%;  
+    height: 1px;
+    background: rgba(255, 255, 255, 0.05); 
+}
+
+.logo {
+    font-size: 24px; /* ¡Corregido! Un tamaño ideal para que se lea NEOSPACE */
+    font-weight: 900;
+    letter-spacing: 4px;
+    text-shadow: 0 0 10px rgba(0, 242, 254, 0.3);
+    white-space: nowrap; /* Evita que el logo se rompa en dos líneas */
+}
+
+.logo .accent {
+    color: var(--neon-cian);
+}
+
+/* Ajustes en los enlaces de navegación */
+.nav {
+    display: flex;
+    align-items: center;
+    gap: 25px; /* Controla la separación entre cada opción de forma exacta */
+}
+
+.nav a {
+    text-decoration: none;
+    color: var(--texto-gris);
+    font-weight: 500;
+    font-size: 15px;      /* Tamaño óptimo de lectura */
+    white-space: nowrap;  /* ¡Clave! Fuerza a que "Quienes Somos" se quede en una sola línea */
+    transition: color 0.3s, text-shadow 0.3s;
+}
+
+.nav a:hover {
+    color: var(--neon-verde);
+    text-shadow: 0 0 8px var(--neon-verde);
+}
+.btn-nav {
+    border: 1px solid var(--neon-cian);
+    color: var(--neon-cian);
+    padding: 8px 20px;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.btn-nav:hover {
+    background: var(--neon-cian);
+    color: var(--bg-principal);
+    box-shadow: 0 0 15px var(--neon-cian);
+}
+
+/* 5. SECCIÓN HERO (Fondo corregido) */
+.hero {
+    background: linear-gradient(180deg, var(--bg-tarjetas) 0%, var(--bg-principal) 100%);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 140px 20px 80px;
+}
+
+.hero-contenido {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.glitch-text {
+    font-size: 35px;
+    font-weight: 900;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    background: linear-gradient(90deg, #fff, var(--neon-cian));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 0 20px rgba(0, 242, 254, 0.5);
+}
+
+.hero-contenido p {
+    font-size: 18px;
+    color: var(--texto-gris);
+    margin-bottom: 20px;
+    max-width: 650px;
+    line-height: 1.6;
+}
+
+.btn-principal {
+    background: rgba(0, 242, 254, 0.05);
+    border: 1px solid var(--neon-cian);
+    color: var(--neon-cian);
+    padding: 15px 35px;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 4px;
+    box-shadow: inset 0 0 10px rgba(0, 242, 254, 0.1), 0 4px 15px rgba(0, 242, 254, 0.2);
+    transition: all 0.3s ease;
+    margin-top: 20px;
+}
+
+.btn-principal:hover {
+    background: var(--neon-cian);
+    color: var(--bg-principal);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 25px rgba(0, 242, 254, 0.6);
+}
+
+/* 6. WIDGET DEL RADAR */
+.panel-cabina-contenedor {
+    margin: 20px auto; 
+    max-width: 500px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.radar-cuadrante {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(18, 20, 32, 0.4);
+    border: 1px dashed rgba(0, 242, 254, 0.3);
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: inset 0 0 20px rgba(0, 242, 254, 0.05);
+}
+
+#radarCanvas {
+    background: #020305;
+    border: 1px solid rgba(0, 242, 254, 0.1);
+    border-radius: 4px;
+    cursor: grab;
+}
+
+#radarCanvas:active {
+    cursor: grabbing;
+}
+
+/* 7. TARJETAS CYBERPUNK (VENTAJAS) */
+.ventajas {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    padding: 80px 8%;
+    flex-wrap: wrap;
+}
+
+.tarjeta {
+    background: var(--bg-tarjetas);
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    padding: 40px 30px;
+    border-radius: 8px;
+    text-align: center;
+    flex: 1;
+    min-width: 280px;
+    max-width: 360px;
+    transition: all 0.4s ease;
+}
+
+.tarjeta:hover {
+    transform: translateY(-10px);
+    border-color: var(--neon-verde);
+    box-shadow: 0 10px 30px rgba(5, 255, 161, 0.15);
+}
+
+.tarjeta-icono {
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+.tarjeta h3 {
+    font-size: 20px;
+    margin-bottom: 15px;
+    letter-spacing: 2px;
+}
+
+.tarjeta p {
+    color: var(--texto-gris);
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+/* 8. FORMULARIO DE CONTACTO */
+.contacto {
+    padding: 80px 8%;
+    text-align: center;
+    background: linear-gradient(180deg, var(--bg-principal) 0%, #050609 100%);
+}
+
+.contacto h2 {
+    font-size: 36px;
+    margin-bottom: 10px;
+    text-shadow: 0 0 15px rgba(255,255,255,0.1);
+}
+
+.sub-contacto {
+    color: var(--neon-cian);
+    margin-bottom: 40px;
+    font-size: 14px;
+}
+
+.formulario {
+    max-width: 550px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.formulario input, .formulario textarea {
+    background: #161925;
+    border: 1px solid rgba(255,255,255,0.08);
+    padding: 15px;
+    color: var(--texto-blanco);
+    border-radius: 4px;
+    font-size: 16px;
+    font-family: 'Inter', sans-serif;
+    transition: all 0.3s;
+}
+
+.formulario input:focus, .formulario textarea:focus {
+    outline: none;
+    border-color: var(--neon-cian);
+    box-shadow: 0 0 10px rgba(0, 242, 254, 0.3);
+    background: #1c2030;
+}
+
+.formulario textarea {
+    height: 140px;
+    resize: none;
+}
+
+.btn-enviar {
+    background: transparent;
+    border: 2px solid var(--neon-verde);
+    color: var(--neon-verde);
+    padding: 15px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.3s;
+}
+
+.btn-enviar:hover {
+    background: var(--neon-verde);
+    color: #050609;
+    box-shadow: 0 0 20px var(--neon-verde);
+}
+
+/* 9. GALERÍA Y LIGHTBOX */
+.galeria-seccion {
+    padding: 80px 8%;
+    text-align: center;
+}
+
+.galeria-seccion h2 {
+    font-size: 32px;
+    margin-bottom: 40px;
+}
+
+.contenedor-galeria {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.item-galeria {
+    flex: 1;
+    min-width: 250px;
+    max-width: 340px;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 6px;
+    border: 1px solid rgba(255,255,255,0.05);
+    cursor: pointer;
+    transition: transform 0.3s, border-color 0.3s;
+}
+
+.item-galeria:hover {
+    transform: scale(1.03);
+    border-color: var(--neon-cian);
+}
+
+.item-galeria img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.lightbox-modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(5, 6, 9, 0.95);
+    backdrop-filter: blur(5px);
+    justify-content: center;
+    align-items: center;
+}
+
+.contenido-lightbox {
+    max-width: 80%;
+    max-height: 70%;
+    border-radius: 4px;
+    border: 2px solid var(--neon-cian);
+    box-shadow: 0 0 30px rgba(0, 242, 254, 0.2);
+}
+
+#caption-lightbox {
+    position: absolute;
+    bottom: 10%;
+    color: var(--texto-gris);
+    letter-spacing: 1px;
+    font-size: 14px;
+}
+
+.cerrar-lightbox {
+    position: absolute;
+    top: 40px;
+    right: 60px;
+    color: var(--texto-blanco);
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.cerrar-lightbox:hover { color: var(--neon-cian); }
+
+.flecha {
+    position: absolute;
+    background: transparent;
+    border: none;
+    color: var(--texto-blanco);
+    font-size: 35px;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 20px;
+    transition: color 0.3s;
+    user-select: none;
+}
+
+.flecha:hover { color: var(--neon-verde); }
+.flecha-izq { left: 5%; }
+.flecha-der { right: 5%; }
+
+/* 10. PRELOADER */
+.loader-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #050609;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.loader-content {
+    text-align: center;
+}
+
+.loader-terminal {
+    color: var(--neon-verde);
+    font-size: 14px;
+    margin-bottom: 15px;
+    letter-spacing: 2px;
+}
+
+.loader-bar-container {
+    width: 250px;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 2px;
+    overflow: hidden;
+    margin: 0 auto 15px;
+}
+
+.loader-bar {
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(90deg, var(--neon-cian), var(--neon-verde));
+    animation: cargaProgreso 1.2s forwards ease-in-out;
+}
+
+.loader-status {
+    color: var(--texto-gris);
+    font-size: 11px;
+    letter-spacing: 1px;
+}
+
+@keyframes cargaProgreso { to { width: 100%; } }
+
+footer {
+    background: #050609;
+    text-align: center;
+    padding: 30px;
+    color: #4a5568;
+    font-size: 13px;
+    letter-spacing: 1px;
+    
+    border-top: none; 
+    position: relative; 
+}
+
+footer::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 8%;   /* Margen izquierdo */
+    right: 8%;  /* Margen derecho */
+    height: 1px;
+    background: rgba(255, 255, 255, 0.02);
+}
+/* ==========================================
+   NUEVOS ESTILOS - QUIÉNES SOMOS (DOS COLUMNAS)
+   ========================================== */
+.contenedor-nosotros {
+    padding: 120px 8% 60px 8%;
+    max-width: 1100px; /* Un poco más ancho para que quepan bien las dos columnas */
+    margin: 0 auto;
+}
+
+.subtitulo-galaxia {
+    text-align: center;
+    color: #fff;
+    margin-bottom: 60px;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+}
+
+/* La magia de las dos columnas */
+.perfil-grid {
+    display: grid;
+    grid-template-columns: 40% 1fr; /* La foto ocupa el 40% y el texto el resto */
+    gap: 60px; /* Espacio entre la foto y el texto */
+    align-items: center;
+}
+
+/* Estilos de la foto */
+.perfil-imagen img {
+    width: 100%;
+    border-radius: 8px; /* Bordes un poco redondeados */
+    border: 2px solid var(--neon-cian, #00f2fe); /* Borde luminoso */
+    box-shadow: 0 0 15px rgba(0, 242, 254, 0.2);
+    display: block;
+}
+
+/* Estilos del texto */
+.perfil-info {
+    text-align: left;
+}
+
+.acerca-de {
+    color: var(--neon-cian, #00f2fe);
+    font-family: 'Orbitron', sans-serif;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.perfil-info h2 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2.8rem;
+    color: #fff;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 3px solid var(--neon-cian, #00f2fe); /* Línea debajo del nombre */
+    display: inline-block; 
+}
+
+.perfil-info p {
+    color: #a0aec0;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    font-size: 1.05rem;
+}
+
+/* Para que se vea bien en celulares (se pone una cosa debajo de otra) */
+@media (max-width: 850px) {
+    .perfil-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+}
+html, body {
+    background-color: var(--bg-principal);
+    color: var(--texto-blanco);
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+}
+/* ==========================================
+   ESTILOS ADAPTATIVOS - QUIÉNES SOMOS
+   ========================================== */
+.contenedor-nosotros {
+    padding: 120px 8% 60px 8%;
+    max-width: 1200px; /* Le damos buen espacio para pantallas grandes */
+    margin: 0 auto;
+}
+
+/* 1. MODO COMPUTADOR (Dos columnas amplias) */
+.perfil-grid {
+    display: grid;
+    /* La foto ocupa el 45% del espacio y el texto el 55% */
+    grid-template-columns: 45% 55%; 
+    gap: 60px; /* Separación entre foto y texto */
+    align-items: center;
+}
+
+/* Ajuste de la imagen para que se estire bien */
+.perfil-imagen img {
+    width: 100%; /* Se estira para llenar su columna */
+    height: auto;
+    border-radius: 8px;
+    border: 2px solid var(--neon-cian); 
+    box-shadow: 0 0 15px rgba(0, 242, 254, 0.2);
+    display: block;
+    object-fit: cover; /* Evita que la foto se deforme al crecer */
+}
+
+/* Estilos del texto para que respire bien */
+.perfil-info {
+    text-align: left;
+}
+
+.acerca-de {
+    color: var(--neon-cian);
+    font-family: 'Orbitron', sans-serif;
+    font-weight: bold;
+    letter-spacing: 2px;
+    font-size: 0.9rem;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.perfil-info h2 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 3rem;
+    color: var(--texto-blanco);
+    margin-bottom: 20px;
+}
+
+.perfil-info p {
+    color: var(--texto-gris);
+    line-height: 1.8;
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+}
+
+/* 2. MODO CELULAR / TABLET (Una columna apilada) */
+@media (max-width: 900px) {
+    .perfil-grid {
+        /* Cambia automáticamente a una sola columna */
+        grid-template-columns: 1fr; 
+        gap: 40px;
+    }
+    
+    .perfil-info h2 {
+        font-size: 2.2rem; /* Achicamos un poco el título en celular */
+    }
+}
