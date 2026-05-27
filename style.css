@@ -939,3 +939,40 @@ html, body {
 #supervivencia, #poderes, #desafio {
     scroll-margin-top: 100px; 
 }
+/* =========================================
+   DISEÑO RESPONSIVO (CELULARES Y TABLETS)
+========================================= */
+@media (max-width: 768px) {
+    
+    /* 1. Arreglar el encabezado para que no se aplaste */
+    .header {
+        flex-direction: column; /* Pone el logo arriba y el menú abajo */
+        gap: 15px;
+        padding: 1rem;
+        text-align: center;
+    }
+    
+    .nav {
+        flex-wrap: wrap; /* Permite que los enlaces bajen de línea si no caben */
+        justify-content: center;
+        gap: 10px;
+    }
+
+    /* 2. Reducir el tamaño del título gigante */
+    /* Ajusta la clase o etiqueta de tu título principal según la tengas */
+    h1, .titulo-principal {
+        font-size: 2.5rem; /* Más pequeño para que quepa bien */
+        margin-top: 10px;
+    }
+
+    /* 3. Hacer que la imagen y el texto del panel se apilen hacia abajo */
+    .panel-sistema {
+        flex-direction: column; /* Apila todo verticalmente */
+        padding: 1.5rem;
+    }
+
+    .imagen-lateral {
+        width: 100%; /* La imagen tomará todo el ancho del celular */
+        margin-bottom: 15px;
+    }
+}
