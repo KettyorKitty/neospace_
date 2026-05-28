@@ -26,7 +26,6 @@ body {
     overflow-x: hidden;
 }
 
-/* Agrupamos todo lo que usa la fuente espacial para no repetir c鏚igo */
 h1, h2, h3, .logo, .btn-nav, .btn-principal, .sub-contacto, .btn-enviar, #caption-lightbox, .loader-content, footer {
     font-family: 'Orbitron', sans-serif;
 }
@@ -69,11 +68,11 @@ h1, h2, h3, .logo, .btn-nav, .btn-principal, .sub-contacto, .btn-enviar, #captio
 }
 
 .logo {
-    font-size: 24px; /* 。orregido! Un tama隳 ideal para que se lea NEOSPACE */
+    font-size: 24px; 
     font-weight: 900;
     letter-spacing: 4px;
     text-shadow: 0 0 10px rgba(0, 242, 254, 0.3);
-    white-space: nowrap; /* Evita que el logo se rompa en dos l璯eas */
+    white-space: nowrap; 
 }
 
 .logo .accent {
@@ -84,14 +83,14 @@ h1, h2, h3, .logo, .btn-nav, .btn-principal, .sub-contacto, .btn-enviar, #captio
 .nav {
     display: flex;
     align-items: center;
-    gap: 25px; /* Controla la separaci鏮 entre cada opci鏮 de forma exacta */
+    gap: 25px; 
 }
 
 .nav a {
     text-decoration: none;
     color: var(--texto-gris);
     font-weight: 500;
-    font-size: 15px;      /* Tama隳 鏕timo de lectura */
+    font-size: 15px;      
     white-space: nowrap;  /* 。lave! Fuerza a que "Quienes Somos" se quede en una sola l璯ea */
     transition: color 0.3s, text-shadow 0.3s;
 }
@@ -550,7 +549,7 @@ footer::after {
     color: #fff;
     margin-bottom: 25px;
     padding-bottom: 15px;
-    border-bottom: 3px solid var(--neon-cian, #00f2fe); /* L璯ea debajo del nombre */
+    border-bottom: 3px solid var(--neon-cian, #00f2fe);
     display: inline-block; 
 }
 
@@ -561,7 +560,6 @@ footer::after {
     font-size: 1.05rem;
 }
 
-/* Para que se vea bien en celulares (se pone una cosa debajo de otra) */
 @media (max-width: 850px) {
     .perfil-grid {
         grid-template-columns: 1fr;
@@ -592,9 +590,7 @@ html, body {
     align-items: center;
 }
 
-/* Ajuste de la imagen para que se estire bien */
-.perfil-imagen img {
-    width: 100%; /* Se estira para llenar su columna */
+    width: 100%; 
     height: auto;
     border-radius: 8px;
     border: 2px solid var(--neon-cian); 
@@ -603,7 +599,6 @@ html, body {
     object-fit: cover; /* Evita que la foto se deforme al crecer */
 }
 
-/* Estilos del texto para que respire bien */
 .perfil-info {
     text-align: left;
 }
@@ -698,7 +693,6 @@ html, body {
     margin-bottom: 30px;
 }
 
-/* Tarjetas de Información Internas */
 .tarjeta-info {
     background: rgba(10, 11, 16, 0.6);
     border: 1px solid rgba(255, 255, 255, 0.05);
@@ -874,7 +868,7 @@ html, body {
     justify-content: center;
     align-items: center;
     margin-bottom: 15px;
-    height: 70px; /* Mantiene la misma altura para todas las tarjetas */
+    height: 70px; 
 }
 
 .img-boss img {
@@ -941,13 +935,13 @@ html, body {
     transform: translateY(0);
 }
 
-/* Pequeño truco para que las tarjetas de los bosses aparezcan en cascada (una tras otra) */
+/* las tarjetas de los bosses aparezcan en cascada (una tras otra) */
 .tarjeta-boss:nth-child(1) { transition-delay: 0.1s; }
 .tarjeta-boss:nth-child(2) { transition-delay: 0.2s; }
 .tarjeta-boss:nth-child(3) { transition-delay: 0.3s; }
 .tarjeta-boss:nth-child(4) { transition-delay: 0.4s; }
 .tarjeta-boss:nth-child(5) { transition-delay: 0.5s; }
-/* Ajuste para que los saltos de ancla no queden tapados por el menú fijo */
+
 #supervivencia, #poderes, #desafio {
     scroll-margin-top: 100px; 
 }
@@ -956,8 +950,6 @@ html, body {
 ========================================= */
 @media (max-width: 768px) {
     
-    /* 1. Arreglar el encabezado para que no se aplaste */
-    .header {
         flex-direction: column; /* Pone el logo arriba y el menú abajo */
         gap: 15px;
         padding: 1rem;
