@@ -1,4 +1,4 @@
-﻿﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -12,12 +12,18 @@
 <body>
 
     <div id="loader" class="loader-wrapper">
-        <div class="loader-content">
-            <div class="loader-terminal">INITIALIZING NEOSPACE_SYSTEM...</div>
-            <div class="loader-bar-container">
-                <div class="loader-bar"></div>
+        <div class="loader-container-gamer">
+            <div class="loader-content">
+                <h1 class="loader-terminal" data-text="INITIALIZING NEOSPACE_SYSTEM...">INITIALIZING NEOSPACE_SYSTEM...</h1>
+                
+                <div class="loader-avatar-container">
+                    <img src="nave.png.png" alt="Nave Insignia NEOSPACE" class="loader-avatar">
+                </div>
+                
+                <div class="loader-bar-container">
+                    <div class="loader-bar"></div>
+                </div>
             </div>
-            <div class="loader-status">CONNECTING [1.5s]</div>
         </div>
     </div>
 
@@ -26,7 +32,8 @@
         <nav class="nav">
             <a href="#" class="active">Inicio</a>
             <a href="nosotros.html">Quienes Somos</a>
-            <a href="sistema.html">Sistema de juego</a> </nav>
+            <a href="sistema.html">Sistema de juego</a> 
+        </nav>
         <a href="#contacto" class="btn-nav">Contacto</a>
     </header>
 
@@ -45,7 +52,7 @@
         </div>
     </section>
 
-<section id="servicios" class="ventajas">
+    <section id="servicios" class="ventajas">
         
         <a href="sistema.html#supervivencia" class="tarjeta" style="text-decoration: none; color: inherit;">
             <div class="tarjeta-icono">⚡</div>
@@ -77,10 +84,10 @@
     </section>
 
     <div id="lightbox" class="lightbox-modal">
-        <span class="cerrar-lightbox">&times;</span>
-        <button class="flecha flecha-izq">&#10094;</button>
+        <span class="cerrar-lightbox">×</span>
+        <button class="flecha flecha-izq">❮</button>
         <img class="contenido-lightbox" id="img-lightbox" src="" alt="">
-        <button class="flecha flecha-der">&#10095;</button>
+        <button class="flecha flecha-der">❯</button>
         <div id="caption-lightbox"></div>
     </div>
 
