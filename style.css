@@ -870,8 +870,20 @@ html, body {
 }
 
 .img-boss {
-    font-size: 3rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin-bottom: 15px;
+    height: 70px; /* Mantiene la misma altura para todas las tarjetas */
+}
+
+.img-boss img {
+    width: 60px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 8px;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 .tarjeta-boss h4 {
