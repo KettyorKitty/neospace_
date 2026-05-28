@@ -868,16 +868,16 @@ html, body {
     justify-content: center;
     align-items: center;
     margin-bottom: 15px;
-    height: 70px; 
+    height: 70px; /* Mantiene la misma altura para todas las tarjetas */
 }
 
 .img-boss img {
-    width: 60px;
-    height: 60px;
-    object-fit: cover;
-    border-radius: 8px;
-    border: 2px solid rgba(255, 255, 255, 0.2);
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    width: 60px;  /* Ancho del cuadrito */
+    height: 60px; /* Alto del cuadrito */
+    object-fit: cover; /* Evita que la imagen se estire o se aplaste */
+    border-radius: 8px; /* Bordes un poco redondeados */
+    border: 2px solid rgba(255, 255, 255, 0.2); /* Un borde sutil */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Sombra para resaltar */
 }
 
 .tarjeta-boss h4 {
