@@ -239,3 +239,69 @@
     }
 
 });
+/* ==========================================================================
+   LÓGICA DEL CARRUSEL DE GALERÍA (NOSOTROS)
+   ========================================================================== */
+document.addEventListener("DOMContentLoaded", () => {
+    const pista = document.querySelector('.carrusel-pista');
+    const btnIzq = document.querySelector('.carrusel-flecha.izq');
+    const btnDer = document.querySelector('.carrusel-flecha.der');
+    const puntos = Array.from(document.querySelectorAll('.carrusel-punto'));
+
+    // Verificamos que los elementos existan (para evitar errores en otras páginas)
+    if (!pista || !btnIzq || !btnDer) return;
+
+    const slides = Array.from(pista.querySelectorAll('.carrusel-slide'));
+    let indiceActual = 0;
+
+    // Función principal para mover la pista de imágenes
+    function moverCarrusel(indice) {
+        // Calculamos el ancho de una tarjeta más el espacio (gap de 20px)
+        const anchoSlide = slides[0].getBoundingClientRect().width;
+        const desplazamiento = -(anchoSlide + 20) * indice; 
+        
+        pista.style.transform = `translateX(${desplazamiento}px)`;
+        
+        // Actualizar la iluminación del puntito activo
+        puntos.forEach(punto => punto.classList.remove('activo'));
+        if (puntos[indice]) {
+            puntos[indice].classList.add('activo');
+        }
+    }
+
+    // Evento: Clic en la flecha derecha
+    btnDer.addEventListener('click', () => {
+        // En celular se muestra 1 tarjeta, en PC se muestran 3
+        const maxSlides = window.innerWidth <= 768 ? slides.length - 1 : slides.length - 3;
+        
+        if (indiceActual < maxSlides) {
+            indiceActual++;
+            moverCarrusel(indiceActual);
+        }
+    });
+
+    // Evento: Clic en la flecha izquierda
+    btnIzq.addEventListener('click', () => {
+        if (indiceActual > 0) {
+            indiceActual--;
+            moverCarrusel(indiceActual);
+        }
+    });
+
+    // Evento: Clic en los puntitos de navegación
+    puntos.forEach((punto, index) => {
+        punto.addEventListener('click', () => {
+            const maxSlides = window.innerWidth <= 768 ? slides.length - 1 : slides.length - 3;
+            // Evita que al hacer clic en el último punto en PC, quede un espacio vacío
+            if(index <= maxSlides) {
+                indiceActual = index;
+                moverCarrusel(indiceActual);
+            }
+        });
+    });
+
+    // Recalcular posiciones si el usuario cambia el tamaño de la ventana
+    window.addEventListener('resize', () => {
+        moverCarrusel(indiceActual);
+    });
+});
