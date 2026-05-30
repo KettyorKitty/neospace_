@@ -1,0 +1,167 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEOSPACE - Sitio Oficial</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="loader" class="loader-wrapper">
+        <div class="loader-container-gamer">
+            <div class="loader-content">
+                <h1 class="loader-terminal" data-text="INITIALIZING NEOSPACE_SYSTEM...">INITIALIZING NEOSPACE_SYSTEM...</h1>
+                
+                <div class="loader-avatar-container">
+                    <img src="nave.png.png" alt="Nave Insignia NEOSPACE" class="loader-avatar">
+                </div>
+                
+                <div class="loader-bar-container">
+                    <div class="loader-bar"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <header class="header">
+        <div class="logo">NEO<span class="accent">SPACE</span></div>
+        <nav class="nav">
+            <a href="#" class="active">Inicio</a>
+            <a href="nosotros.html">Quienes Somos</a>
+            <a href="sistema.html">Sistema de juego</a> 
+        </nav>
+        <a href="#contacto" class="btn-nav">Contacto</a>
+    </header>
+<<!-- ==========================================================================
+        3. SECCIÓN HERO (PORTADA PRINCIPAL INTERACTIVA)
+    =========================================================================== -->
+    <section id="inicio" class="hero">
+        <div class="hero-contenido">
+            
+            <!-- Título Principal -->
+            <h1 class="glitch-text-pro" data-text="NEOSPACE">NEOSPACE</h1>
+            
+            <!-- MARCO DE INTERFAZ RETRO PARA LA NAVE DE COMBATE -->
+            <div class="interfaz-nave-box">
+                <div class="esquina-hud arr-izq"></div>
+                <div class="esquina-hud arr-der"></div>
+                <div class="esquina-hud aba-izq"></div>
+                <div class="esquina-hud aba-der"></div>
+                <span class="hud-status-text">TARGET_FOUND // READY</span>
+                
+                <div class="nave-principal-container">
+                    <!-- Nueva Nave Vectorial de Combate más Detallada -->
+                    <svg class="cohete-retro" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#00f2fe" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                        <!-- Alas e ingeniería lateral -->
+                        <path d="M3 17l3-3h12l3 3M4.5 15.5V19l2.5-1M19.5 15.5V19l-2.5-1" />
+                        <!-- Cuerpo principal estilizado de combate -->
+                        <path d="M12 2C9 6 8 12 9 15h6c1-3 0-9-3-13z" />
+                        <!-- Propulsores y fuego de plasma -->
+                        <path d="M10 15v3l2 2 2-2v-3M9 16.5h6" />
+                        <path d="M12 18v4" stroke="#05ffa1" stroke-width="2" /> <!-- Flama neón verde -->
+                        <!-- Cabina -->
+                        <polygon points="12,6 10,9 14,9" fill="rgba(0, 242, 254, 0.3)" />
+                    </svg>
+                </div>
+            </div>
+
+            <!-- Subtextos con Jerarquía Forzada -->
+            <div class="subtext-container">
+                <p class="tagline-arcade" style="font-family: 'Orbitron', sans-serif !important; font-size: 1.8rem !important; font-weight: 900 !important; text-transform: uppercase !important; color: #00f2fe !important; text-shadow: 0 0 8px rgba(0, 242, 254, 0.8), 0 0 20px rgba(0, 242, 254, 0.6) !important; text-align: center; line-height: 1.4; max-width: 850px; margin: 2.5rem auto; letter-spacing: 2px;">
+                    Un juego espacial con vibra retro, inspirado en la emoción de los clásicos que marcaron una generación.
+                </p>
+                <p class="tagline-alerta">
+                    <span class="alerta-icono">⚠️</span> Sobrevive al caos espacial. Destruye, esquiva y conquista la galaxia.
+                </p>
+            </div>
+            
+            <!-- Radar Vectorial 3D -->
+            <div id="simulador-hero" class="panel-cabina-contenedor">
+                <div class="radar-cuadrante">
+                    <canvas id="radarCanvas" width="320" height="260"></canvas>
+                </div>
+            </div>            
+            
+            <a href="#servicios" class="btn-principal sound-hover">Jugar</a>
+        </div>
+    </section>
+
+    <section id="galeria" class="galeria-seccion">
+        <h2 class="titulo-seccion">Muestras de Radar</h2>
+        <div class="contenedor-galeria">
+            <div class="item-galeria"><img src="https://lh3.googleusercontent.com/d/1NG4dxZTSOzVp2wOsgCBNOK4iAYhyXPJw" alt="Nebulosa Alpha" class="img-click"></div>
+            <div class="item-galeria"><img src="https://lh3.googleusercontent.com/d/1W280fK6x4wvtYkpWinZ7-myxj24HvyEl" alt="Cinturón de Asteroides" class="img-click"></div>
+            <div class="item-galeria"><img src="https://lh3.googleusercontent.com/d/10WM_LzP_CnzCDE7nPjP1ToHN2-WaSa0j" alt="Nave Polyspace" class="img-click"></div>
+        </div>
+    </section>
+
+    <div id="lightbox" class="lightbox-modal">
+        <span class="cerrar-lightbox">×</span>
+        <button class="flecha flecha-izq">❮</button>
+        <img class="contenido-lightbox" id="img-lightbox" src="" alt="">
+        <button class="flecha flecha-der">❯</button>
+        <div id="caption-lightbox"></div>
+    </div>
+
+    <section id="contacto" class="contacto">
+        <h2>Gmail</h2>
+        <p class="sub-contacto">Resolveremos a todas sus inquietudes</p>
+        
+        <form class="formulario" action="mailto:negociosenequipo6@gmail.com" method="post" enctype="text/plain">
+            <input type="email" name="Correo" placeholder="Correo Electrónico" required class="sound-hover">
+            <textarea name="Mensaje" placeholder="Especificaciones del proyecto..." required class="sound-hover"></textarea>
+            <button type="submit" class="btn-enviar sound-hover">Enviar</button>
+        </form>
+    </section>
+
+    <footer class="cyber-footer">
+        <div class="footer-overlay"></div>
+        
+        <div class="footer-content">
+            
+            <div class="footer-brand">
+                <p class="ubicacion">📍 Cali, Colombia</p>
+                <div class="redes-box">
+                    <a href="https://www.instagram.com/neospace2026?igsh=Yjk3eHJqNTdlM2d3" target="_blank" class="instagram-link">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-credits">
+                <h4>[ ESCUADRÓN DE DESARROLLO ]</h4>
+                <ul class="credits-list">
+                    <li><span class="credits-icono">🚀</span> Yilber Alexis</li>
+                    <li><span class="credits-icono">🚀</span> Kelly Sofía Arcos</li>
+                    <li><span class="credits-icono">🚀</span> Jackson Córdoba</li>
+                    <li><span class="credits-icono">🚀</span> Joan Sebastián Oquendo</li>
+                    <li><span class="credits-icono">🚀</span> Yiddian Hernández</li>
+                    <li><span class="credits-icono">🚀</span> Sergio García</li>
+                </ul>
+            </div>
+
+            <div class="footer-tech">
+                <h4>[ CENTRO DE COMANDO ]</h4>
+                <p class="instituto">Instituto Centro de Sistemas del Valle</p>
+                <p class="curso">Especialidad: Diseño Web</p>
+                <p class="fecha">// REGISTRO DE ENTREGA: 2026 //</p>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <p style="margin: 0;">📡 ESTADO: MISIÓN COMPLETADA // ©️ 2026 NEOSPACE</p>
+        </div>
+    </footer>
+
+    <script src="script.js" defer></script>
+</body>
+</html>
