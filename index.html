@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<! DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -17,7 +17,7 @@
                 <h1 class="loader-terminal" data-text="INITIALIZING NEOSPACE_SYSTEM...">INITIALIZING NEOSPACE_SYSTEM...</h1>
                 
                 <div class="loader-avatar-container">
-                    <img src="https://lh3.googleusercontent.com/d/1z1ztevtiSYV0b1EEEcn6NS3ZrliC0zzJ" alt="Nave Insignia NEOSPACE" class="loader-avatar">
+                    <img src="nave.png.png" alt="Nave Insignia NEOSPACE" class="loader-avatar">
                 </div>
                 
                 <div class="loader-bar-container">
@@ -36,16 +36,11 @@
         </nav>
         <a href="#contacto" class="btn-nav">Contacto</a>
     </header>
-<<!-- ==========================================================================
-        3. SECCIÓN HERO (PORTADA PRINCIPAL INTERACTIVA)
-    =========================================================================== -->
-    <section id="inicio" class="hero">
+<section id="inicio" class="hero">
         <div class="hero-contenido">
             
-            <!-- Título Principal -->
             <h1 class="glitch-text-pro" data-text="NEOSPACE">NEOSPACE</h1>
             
-            <!-- MARCO DE INTERFAZ RETRO PARA LA NAVE DE COMBATE -->
             <div class="interfaz-nave-box">
                 <div class="esquina-hud arr-izq"></div>
                 <div class="esquina-hud arr-der"></div>
@@ -54,32 +49,22 @@
                 <span class="hud-status-text">TARGET_FOUND // READY</span>
                 
                 <div class="nave-principal-container">
-                    <!-- Nueva Nave Vectorial de Combate más Detallada -->
                     <svg class="cohete-retro" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#00f2fe" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
-                        <!-- Alas e ingeniería lateral -->
                         <path d="M3 17l3-3h12l3 3M4.5 15.5V19l2.5-1M19.5 15.5V19l-2.5-1" />
-                        <!-- Cuerpo principal estilizado de combate -->
                         <path d="M12 2C9 6 8 12 9 15h6c1-3 0-9-3-13z" />
-                        <!-- Propulsores y fuego de plasma -->
                         <path d="M10 15v3l2 2 2-2v-3M9 16.5h6" />
-                        <path d="M12 18v4" stroke="#05ffa1" stroke-width="2" /> <!-- Flama neón verde -->
-                        <!-- Cabina -->
+                        <path d="M12 18v4" stroke="#05ffa1" stroke-width="2" />
                         <polygon points="12,6 10,9 14,9" fill="rgba(0, 242, 254, 0.3)" />
                     </svg>
                 </div>
             </div>
 
-            <!-- Subtextos con Jerarquía Forzada -->
             <div class="subtext-container">
                 <p class="tagline-arcade" style="font-family: 'Orbitron', sans-serif !important; font-size: 1.8rem !important; font-weight: 900 !important; text-transform: uppercase !important; color: #00f2fe !important; text-shadow: 0 0 8px rgba(0, 242, 254, 0.8), 0 0 20px rgba(0, 242, 254, 0.6) !important; text-align: center; line-height: 1.4; max-width: 850px; margin: 2.5rem auto; letter-spacing: 2px;">
                     Un juego espacial con vibra retro, inspirado en la emoción de los clásicos que marcaron una generación.
                 </p>
-                <p class="tagline-alerta">
-                    <span class="alerta-icono">⚠️</span> Sobrevive al caos espacial. Destruye, esquiva y conquista la galaxia.
-                </p>
             </div>
             
-            <!-- Radar Vectorial 3D -->
             <div id="simulador-hero" class="panel-cabina-contenedor">
                 <div class="radar-cuadrante">
                     <canvas id="radarCanvas" width="320" height="260"></canvas>
@@ -87,6 +72,13 @@
             </div>            
             
             <a href="#servicios" class="btn-principal sound-hover">Jugar</a>
+
+            <p class="tagline-alerta" style="margin-top: 35px; margin-bottom: 0;">
+                <span class="alerta-icono">⚠️</span> Sobrevive al caos espacial. Destruye, esquiva y conquista la galaxia.
+            </p>
+
+            <div class="linea-separadora-cyber"></div>
+
         </div>
     </section>
 
