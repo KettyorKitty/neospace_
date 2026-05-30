@@ -1,24 +1,37 @@
-﻿/* ==========================================================================
-   ESCUDO DE SEGURIDAD GLOBAL - NEOSPACE
+/* ==========================================================================
+   ESCUDO DE SEGURIDAD GLOBAL AVANZADO - NEOSPACE
    ========================================================================== */
 
-// 1. Bloqueo total del menú contextual (Clic derecho)
+// 1. TRAMPA DEFINITIVA: Bucle de depuración (Inutiliza la consola si logran abrirla)
+setInterval(function() {
+    debugger;
+}, 100);
+
+// 2. Bloqueo total del menú contextual (Clic derecho)
 document.addEventListener('contextmenu', (e) => {
     e.preventDefault();
     alert("SISTEMA PROTEGIDO: El Centro de Comando de NEOSPACE ha bloqueado esta acción.");
 });
 
-// 2. Bloqueo de atajos de teclado para inspección y copia
+// 3. Bloqueo de atajos de teclado optimizado (Atrapa todas las variantes)
 document.addEventListener('keydown', function(e) {
+    // Convertimos la tecla presionada a minúscula para asegurar la coincidencia
+    const tecla = e.key.toLowerCase();
+
+    // Condición de seguridad extrema
     if (
-        // F12 (Herramientas de desarrollador)
+        // F12 Directo
         e.key === "F12" || 
-        // Ctrl + Shift + I (Inspeccionar) o Ctrl + Shift + J (Consola)
-        (e.ctrlKey && e.shiftKey && (e.key === "I" || e.key === "j" || e.key === "J")) || 
         // Ctrl + U (Ver código fuente)
-        (e.ctrlKey && (e.key === "u" || e.key === "U")) || 
-        // Ctrl + S (Guardar página completa)
-        (e.ctrlKey && (e.key === "s" || e.key === "S"))
+        (e.ctrlKey && tecla === "u") || 
+        // Ctrl + S (Guardar página)
+        (e.ctrlKey && tecla === "s") || 
+        // Ctrl + Shift + I (Inspeccionar)
+        (e.ctrlKey && e.shiftKey && tecla === "i") || 
+        // Ctrl + Shift + J (Consola)
+        (e.ctrlKey && e.shiftKey && tecla === "j") || 
+        // Ctrl + Shift + C (Inspector de elementos en vivo)
+        (e.ctrlKey && e.shiftKey && tecla === "c")
     ) {
         e.preventDefault();
         alert("ACCESO DENEGADO: Protocolo de seguridad anti-copia activado.");
